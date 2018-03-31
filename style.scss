@@ -1,0 +1,265 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300');
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+$gold : rgb(199,159,39);
+$gold-light : hsl(45, 67%, 90%);
+
+* {
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+header {
+    //text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h1 {
+        font-family: 'Open Sans Condensed', sans-serif;
+        font-size: 3em;
+    }
+    button {
+        display: inline-block;
+        background: $gold;
+        color: white;
+        border: none;
+        padding: 6px;
+        font: inherit;
+        font-weight: bolder;
+        cursor: pointer;
+        border-radius: 8px;
+        height: 34px;
+        margin-top: 18px;
+        margin-bottom: 8px;
+        &:hover {
+            border: 2px solid black;
+        }
+    }
+    .switchDiv {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 8px;
+        margin-top: 8px;
+    }
+}
+
+.svgClass {
+    margin: 0 auto;
+    display: block;
+
+    background-color: #eee;
+    border: 2px solid #777;
+    box-shadow: -4px 4px 4px #777;
+    border-radius: 6px;
+}
+
+svg {   
+    .circleClass {
+        fill: $gold-light;
+        stroke: #777;
+        &:hover {
+            stroke: $gold;
+            stroke-width: 4px;
+        }
+    }
+      
+    .yearWinner {
+        fill: $gold;
+    }
+    
+    .tick {
+        line {
+            opacity: 0.2;
+        }
+    }
+
+    .axis text {
+        font-weight: bold;
+    }
+
+    .axisLabel{
+        font-weight: bold;
+    }
+
+    .yearLabel {
+        &:hover {
+            cursor: pointer;
+            fill: $gold;
+            -webkit-transition: .2s;
+            transition: .2s;
+        }
+    }
+    .axisExtra {
+        font-size: 0.9em;
+    }
+    .linkLine {
+        stroke: #777;
+    }
+}
+
+
+
+.tooltip {
+    opacity: 0;
+    position: absolute;
+    pointer-events: none;
+
+    max-width: 500px;
+    background-color: white;
+    border: 1px solid #aaa;
+    border-left: 6px solid $gold;
+    //border-radius: 3px;
+    padding: 4px;
+    padding-left: 8px;
+
+    p {
+        margin: 1px;
+    }
+    ul {
+        margin-top: 4px;
+        li {
+            strong {
+                font-weight: bolder;
+            }
+        }
+    }
+    h3 {
+        margin-top: 4px;
+        margin-bottom: 8px;
+        font-family: 'Open Sans Condensed', sans-serif;
+        font-size: 1.5em;
+    }
+}
+
+#back {
+    display: none;
+}
+
+
+
+.toggle {
+    margin: auto;
+    position: relative;
+    display: block;
+    width: 220px;
+    height: 34px;
+
+}
+
+/* Hide default HTML checkbox */
+.toggle input {    
+    display:none;
+    &:checked + .toggleSlider{
+        background-color: #aaa;
+
+    }
+}
+
+/* The slider */
+.toggleSlider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: $gold;
+    -webkit-transition: .2s;
+    transition: .2s;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    color: white;
+    font-weight: bolder;
+
+    &:hover {
+        border: 2px solid black;
+    }
+
+}
+
+.marBottom {
+    margin-bottom: 69px;
+}
+
+input:focus + .toggleSlider {
+    box-shadow: 0 0 1px $gold;
+}
+
+
+
+/* The switch - the box around the slider */
+.switch {
+    margin: auto;
+    position: relative;
+    display: block;
+    width: 60px;
+    height: 34px;
+
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+    display:none;
+    &:checked + .slider {
+        background-color: $gold;
+    }
+    &:focus + .slider {
+        box-shadow: 0 0 1px $gold;
+    }
+    &:checked + .slider:before {
+        -webkit-transform: translateX(26px);
+        -ms-transform: translateX(26px);
+        transform: translateX(26px);
+    }
+}
+
+/* The slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #aaa;
+    -webkit-transition: .4s;
+    transition: .4s;
+    &:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+        &:hover {
+            height: 24px;
+            width: 24px;
+
+        }
+    }
+
+}
+
+
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+    &:hover {
+        border-radius: 32px;
+        border: 2px solid black;
+    }
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
