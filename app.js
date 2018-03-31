@@ -302,7 +302,7 @@ d3.queue()
                     .classed("yearWinner", movie => movie.winner)
                     .transition().duration(300)
                     .attr("r", movie => movie.winner ? 12 : 8)
-                    .attr("cx", movie => xScaleBand(movie.award) + padding*1.3)
+                    .attr("cx", movie => xScaleBand(movie.award) +padding + xScaleBand.bandwidth()/2)
                     .attr("cy", movie => yScale(movie.rating))
             
 
